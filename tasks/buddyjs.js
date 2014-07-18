@@ -53,7 +53,7 @@ module.exports = function(grunt) {
       ignore: [0, 1],
       disableIgnore: false,
       reporter: "simple",
-      constants: false,
+      enforceConst: false,
       noColor: false
     });
 
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 
     var ignore = options.disableIgnore ? [] : options.ignore;
 
-    var detector = new Detector(paths, options.constants, ignore);
+    var detector = new Detector(paths, options.enforceConst, ignore);
     var reporter = new reporters[options.reporter](detector);
     
     var output = "";

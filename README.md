@@ -20,70 +20,67 @@ grunt.loadNpmTasks('grunt-buddyjs');
 ## The "buddyjs" task
 
 ### Overview
+This task is a wrapper around [buddy.js](https://github.com/danielstjules/buddy.js), a magic number detector.
+
 In your project's Gruntfile, add a section named `buddyjs` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
   buddyjs: {
+    src: ['file1.js', 'file2.js'],
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+      // ...
+    }
   },
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.ignore
+Type: `Array`
+Default value: `[0, 1]`
+
+Numbers that will be ignored in the processing.
+
+#### options.disableIgnore
+Type: `Boolean`
+Default value: `false`
+
+Disables the ignore list.
+
+#### options.enforceConst
+Type: `Boolean`
+Default value: `false`
+
+Enforce literals to be declared with the `const` keyword.
+
+#### options.noColor
+Type: `Boolean`
+Default value: `false`
+
+#### options.reporter
 Type: `String`
-Default value: `',  '`
+Default value: `simple`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+Reporter to use. Options available are `simple`, `json` and `detailed`.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+The following configuration would disable ignoring `0` and `1` as magic numbers
+and report as JSON.
 
 ```js
 grunt.initConfig({
   buddyjs: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  buddyjs: {
+    src: ["lib/*.js"],
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+      disableIgnore: true,
+      reporter: "json"
+    }
   },
 });
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+* **v0.1.0** - Initial release.
