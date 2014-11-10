@@ -37,7 +37,7 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "buddy.js": "^0.5.1",
+    "buddy.js": "^0.7.1",
     "chalk": "^0.5.1"
   }
 }
