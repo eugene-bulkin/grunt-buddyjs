@@ -15,10 +15,12 @@
   "bugs": {
     "url": "https://github.com/eugene-bulkin/grunt-buddyjs/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/eugene-bulkin/grunt-buddyjs/blob/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/eugene-bulkin/grunt-buddyjs/blob/master/LICENSE"
+    }
+  ],
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -31,7 +33,7 @@
     "grunt": "~0.4.0"
   },
   "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin"
